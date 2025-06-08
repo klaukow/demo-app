@@ -79,7 +79,7 @@ jobs:
         run: |
           humctl score deploy \
             --org ${{ secrets.HUMANITEC_ORG }} \
-            --app quickstart \
+            --app demo-app \
             --env development \
             --image ${{ steps.build_push.outputs.tags }} \
-            --token ${{ secrets.token2 }}
+            --token ${{ secrets.humanitectoken }}
