@@ -17,6 +17,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
   HUMCTL_VERSION: '0.24.0'
   HUMANITEC_APP: 'demo-app'
+  ENVIRONMENT: 'development'
 
 
 jobs:
