@@ -15,7 +15,6 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  SCORE_HUMANITEC_VERSION: 0.9.1
   HUMCTL_VERSION: '0.13.0'
   HUMANITEC_ORG: kk1
 
