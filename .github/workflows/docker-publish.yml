@@ -16,6 +16,7 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
   HUMCTL_VERSION: '0.13.0'
+  SCORE_HUMANITEC_VERSION: 0.9.1
   HUMANITEC_ORG: kk1
 
 
@@ -72,12 +73,14 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Set up Humanitec CLI
-        uses: humanitec/setup-cli-action@v1
+        uses: score-spec/setup-score@v2
         with:
-          version: ${{ env.HUMCTL_VERSION }}
+          version: ${{ env.SCORE_HUMANITEC_VERSION }}
+          file: score-humanitec
       - name: Deploy with Humanitec
         run: |
-          humctl score deploy \
+          score-humanitec \
+            --deploy
             --org ${{ secrets.HUMANITEC_ORG }} \
             --app demo-app \
             --env development \
