@@ -82,6 +82,6 @@ jobs:
             --org ${{ secrets.HUMANITEC_ORG }} \
             --app ${{ env.HUMANITEC_APP }}  \
             --image ${{ steps.build_push.outputs.tags }} \
-            --token ${{ secrets.humanitectoken }}\
+            --token ${{ secrets.humanitectoken }} \
             --env ${{ env.ENVIRONMENT }} \
             -f score.yaml 
