@@ -73,6 +73,8 @@ jobs:
           cache-to: type=gha,mode=max
       - name: Set up Humanitec CLI
         uses: humanitec/setup-cli-action@v1
+        with:
+          version: ${{ env.HUMCTL_VERSION }}
       - name: Deploy with Humanitec
         run: |
           humctl score deploy \
