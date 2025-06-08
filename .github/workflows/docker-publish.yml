@@ -12,11 +12,11 @@ on:
 
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
+  REGISTRY: 'ghcr.io'
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
   HUMCTL_VERSION: '0.24.0'
-  HUMANITEC_ORG: kk1
+  HUMANITEC_APP: 'demo-app'
 
 
 jobs:
@@ -79,8 +79,7 @@ jobs:
         run: |
           humctl score deploy \
             --org ${{ secrets.HUMANITEC_ORG }} \
-            --app demo-app \
-            --env development \
+            --app ${{ env.HUMANITEC_APP }}  \
             --image ${{ steps.build_push.outputs.tags }} \
             --token ${{ secrets.humanitectoken }}
             --env ${{ env.ENVIRONMENT }} \
