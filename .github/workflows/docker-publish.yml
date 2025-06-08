@@ -79,8 +79,7 @@ jobs:
           file: score-humanitec
       - name: Deploy with Humanitec
         run: |
-          score-humanitec \
-            --deploy
+          score-humanitec run \
             --org ${{ secrets.HUMANITEC_ORG }} \
             --app demo-app \
             --env development \
