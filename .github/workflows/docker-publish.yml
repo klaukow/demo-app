@@ -68,3 +68,13 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - name: Set up Humanitec CLI
+        uses: humanitec/setup-cli-action@v1
+      - name: Deploy with Humanitec
+        run: |
+          humctl score deploy \
+            --org ${{ secrets.HUMANITEC_ORG }} \
+            --app quickstart \
+            --env development \
+            --image ${{ steps.build_push.outputs.tags }} \
+            --token ${{ secrets.token2 }}
