@@ -5,20 +5,17 @@ containers:
   main:
     image: .
     variables:
-      OVERRIDE_POSTGRES: "postgres://${resources.db1.username}:${resources.db1.password}@${resources.db1.host}:${resources.db1.port}/${resources.db1.database}"
+      OVERRIDE_POSTGRES: "postgres://${resources.db.username}:${resources.db.password}@${resources.db.host}:${resources.db.port}/${resources.db.database}"
 service:
   ports:
     web:
       port: 8080
 resources:
-  dns:
-    type: dns
   route:
     type: route
     params:
-      host: ${resources.dns.host}
       path: /
       port: 8080
-  db1:
+  db:
     type: postgres
 
