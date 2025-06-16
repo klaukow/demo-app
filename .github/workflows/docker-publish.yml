@@ -36,7 +36,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.TOKEN_DEMO}}
+          password: ${{ secrets.TOKEN_DEMO }}
 
       - name: Build and push image
         id: build_push
