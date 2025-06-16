@@ -59,7 +59,7 @@ jobs:
       - name: Deploy Score
         run: |
           humctl score deploy \
-              --token ${{ secrets.HUMANITEC_TOKEN }} \
+              --token ${{ secrets.SUSER }} \
               --org ${{ vars.HUMANITEC_ORG }} \
               --app ${{ vars.HUMANITEC_APP }} \
               --env ${{ env.ENVIRONMENT }} \
